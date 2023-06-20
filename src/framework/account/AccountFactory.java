@@ -1,4 +1,6 @@
-package framework;
+package framework.account;
+
+import framework.customer.ICustomer;
 
 public class AccountFactory implements IAccountFactory {
 

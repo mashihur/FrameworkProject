@@ -1,6 +1,10 @@
 package bankingSystem;
 
 import framework.*;
+import framework.account.IAccount;
+import framework.customer.CustomerFactory;
+import framework.customer.ICustomer;
+import framework.customer.IPerson;
 
 import java.util.function.BiPredicate;
 

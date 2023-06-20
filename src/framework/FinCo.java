@@ -1,5 +1,12 @@
 package framework;
 
+import framework.account.AccountFactory;
+import framework.account.IAccount;
+import framework.customer.CustomerFactory;
+import framework.customer.ICompany;
+import framework.customer.ICustomer;
+import framework.customer.IPerson;
+
 import java.util.ArrayList;
 import java.util.List;
 

@@ -1,4 +1,6 @@
-package framework;
+package framework.customer;
+
+import framework.account.IAccount;
 
 import java.util.List;
 import java.util.function.BiPredicate;

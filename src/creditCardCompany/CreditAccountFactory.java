@@ -1,11 +1,8 @@
 package creditCardCompany;
 
-import bankingSystem.BankConstants;
-import bankingSystem.CheckingAccount;
-import bankingSystem.SavingsAccount;
-import framework.Account;
-import framework.IAccountFactory;
-import framework.ICustomer;
+import framework.account.Account;
+import framework.account.IAccountFactory;
+import framework.customer.ICustomer;
 
 public class CreditAccountFactory implements IAccountFactory {
     @Override

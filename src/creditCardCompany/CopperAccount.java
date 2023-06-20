@@ -1,7 +1,7 @@
 package creditCardCompany;
 
-import framework.Account;
-import framework.ICustomer;
+import framework.account.Account;
+import framework.customer.ICustomer;
 
 public class CopperAccount extends Account  {
     private double MI = 0.20;

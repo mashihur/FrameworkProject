@@ -1,7 +1,6 @@
-package framework;
+package framework.account;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 public abstract class Entry implements IEntry {
     private double amount;

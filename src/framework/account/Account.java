@@ -1,4 +1,6 @@
-package framework;
+package framework.account;
+
+import framework.customer.ICustomer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

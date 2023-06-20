@@ -1,9 +1,8 @@
 package bankingSystem;
 
-import framework.Account;
-import framework.ConcreteAccount;
-import framework.IAccountFactory;
-import framework.ICustomer;
+import framework.account.Account;
+import framework.account.IAccountFactory;
+import framework.customer.ICustomer;
 
 public class BankAccountFactory implements IAccountFactory {
     @Override

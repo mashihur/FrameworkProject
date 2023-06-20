@@ -1,4 +1,6 @@
-package framework;
+package framework.account;
+
+import framework.customer.ICustomer;
 
 public class ConcreteAccount extends Account {
     private double INTEREST_RATE = 0.0;

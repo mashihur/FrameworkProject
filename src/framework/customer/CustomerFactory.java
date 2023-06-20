@@ -1,4 +1,4 @@
-package framework;
+package framework.customer;
 
 public class CustomerFactory implements  ICustomerFactory {
     @Override

@@ -1,4 +1,4 @@
-package framework;
+package framework.account;
 
 public interface IEntry {
     Double getDeposit();

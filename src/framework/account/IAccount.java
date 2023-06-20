@@ -1,4 +1,4 @@
-package framework;
+package framework.account;
 
 public interface IAccount {
      void addInterest(double interest);

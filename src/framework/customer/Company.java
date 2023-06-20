@@ -1,6 +1,4 @@
-package framework;
-
-import java.util.function.BiPredicate;
+package framework.customer;
 
 public class Company extends Customer implements ICompany {
     int noOfEmployee;

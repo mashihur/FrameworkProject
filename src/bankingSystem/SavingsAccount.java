@@ -1,7 +1,7 @@
 package bankingSystem;
 
-import framework.Account;
-import framework.ICustomer;
+import framework.account.Account;
+import framework.customer.ICustomer;
 
 public class SavingsAccount extends Account {
     private double INTEREST_RATE = 0.0;
