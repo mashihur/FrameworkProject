@@ -3,26 +3,37 @@ package framework;
 import java.util.List;
 import java.util.function.BiPredicate;
 
-public abstract class Customer {
+public abstract class Customer implements ICustomer {
     String name;
     String email;
     String street;
     String city;
     String state;
     String zip;
-    BiPredicate<Double, Double> emailSendingCondition = (a,b) -> true;
-    List<Account> accountList;
+    BiPredicate<Double, Double> emailSendingCondition = (balance, amount) -> true;
+    List<IAccount> accountList;
 
-    public void addAccount(Account account) {
+    public void addAccount(IAccount account) {
         accountList.add(account);
+    }
+
+    public List<IAccount> getAccountList() {
+        return accountList;
     }
 
     public void sendEmailToCustomer(Double balance, Double amount) {
         if (emailSendingCondition.test(balance, amount)) {
-            sendEmail();
+            System.out.println("Email sent to " + email);
         }
     }
-    abstract void sendEmail();
 
+    public  void setEmailSendingCondition(BiPredicate<Double, Double> emailSendingCondition) {
+        this.emailSendingCondition = emailSendingCondition;
+    }
+
+    @Override
+    public String getCustomerName() {
+        return name;
+    }
 
 }

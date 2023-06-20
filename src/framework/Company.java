@@ -1,9 +1,7 @@
 package framework;
 
-public class Company extends Customer implements IPerson {
+import java.util.function.BiPredicate;
 
-    @Override
-    void sendEmail() {
-
-    }
+public class Company extends Customer implements ICompany {
+    int noOfEmployee;
 }
