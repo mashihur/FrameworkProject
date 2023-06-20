@@ -1,6 +1,7 @@
 package creditCardCompany;
 
 import framework.account.Account;
+import framework.account.IEntry;
 import framework.customer.ICustomer;
 
 public class CopperAccount extends Account  {
@@ -18,6 +19,23 @@ public class CopperAccount extends Account  {
 
     @Override
     public String generateMonthlyRecord() {
+        double totalCharges = 0.0;
+        double totalCredits = 0.0;
+        for (IEntry entry : entryList) {
+            totalCharges += entry.getWithdrawOrCharge();
+            totalCredits += entry.getDeposit();
+        }
+        double newBalance = monthlyBalance.getStartingBalance() - totalCredits + totalCharges + MI * (monthlyBalance.getStartingBalance() - totalCredits);
+        double totalDue = MP * newBalance;
+
+        StringBuilder recordBuilder = new StringBuilder();
+        recordBuilder.append("Name: " + customer.getCustomerName() + "\n")
+                .append("Account No: " + getAccountNumber() + "\n")
+                .append("Previous balance: " + monthlyBalance.getStartingBalance() + "\n")
+                .append("Total charges: " + totalCharges + "\n")
+                .append("Total credits: " + totalCredits + "\n")
+                .append("New balance: " + newBalance + "\n")
+                .append("Total Due: " + totalDue + "\n");
         return null;
     }
 }

@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Account implements IAccount{
-    String accNumber;
-    double balance;
-    ICustomer customer;
-    List<IEntry> entryList = new ArrayList<>();
-    MonthlyBalance monthlyBalance;
+    protected String accNumber;
+    protected double balance;
+    protected ICustomer customer;
+    protected List<IEntry> entryList = new ArrayList<>();
+    protected MonthlyBalance monthlyBalance;
 
     public Account(String accNumber, double balance, ICustomer customer) {
         this.accNumber = accNumber;
