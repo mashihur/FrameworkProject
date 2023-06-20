@@ -28,17 +28,17 @@ public abstract class Account implements IAccount{
 
     @Override
     public void deposit(double amount) {
+        updateMonthlyBalance(LocalDate.now(), balance);
         balance += amount;
         addEntry(new DepositEntry(amount, LocalDate.now(), "Deposit"));
-        updateMonthlyBalance(LocalDate.now(), balance);
         customer.sendEmailToCustomer(balance, amount);
     }
 
     @Override
     public void withdrawOrCharge(double amount) {
+        updateMonthlyBalance(LocalDate.now(), balance);
         balance -= amount;
         addEntry(new WithdrawEntry(amount, LocalDate.now(), "Withdraw"));
-        updateMonthlyBalance(LocalDate.now(), balance);
         customer.sendEmailToCustomer(balance, amount);
     }
 
@@ -52,5 +52,28 @@ public abstract class Account implements IAccount{
     @Override
     public String getAccountNumber() {
         return accNumber;
+    }
+
+    @Override
+    public String generateMonthlyRecord() {
+        double totalWithdrawal = 0.0;
+        double totalDeposit = 0.0;
+        for (IEntry entry : entryList) {
+            LocalDate entryDate = entry.getDate();
+            LocalDate now = LocalDate.now();
+            if (entryDate.getMonthValue() == now.getMonthValue() && entryDate.getMonthValue() == now.getMonthValue()) {
+                totalWithdrawal += entry.getWithdrawOrCharge();
+                totalDeposit += entry.getDeposit();
+            }
+        }
+
+        StringBuilder recordBuilder = new StringBuilder();
+        recordBuilder.append("Name: " + customer.getCustomerName() + "\n")
+                .append("Account No: " + getAccountNumber() + "\n")
+                .append("Previous balance: " + monthlyBalance.getStartingBalance() + "\n")
+                .append("Total deposit: " + totalDeposit + "\n")
+                .append("Total withdrawal: " + totalWithdrawal + "\n")
+                .append("Current balance: " + balance + "\n");
+        return null;
     }
 }

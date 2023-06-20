@@ -4,6 +4,8 @@ import framework.account.Account;
 import framework.account.IEntry;
 import framework.customer.ICustomer;
 
+import java.time.LocalDate;
+
 public class SilverAccount extends Account  {
     private double MI = 0.16;
     private double MP = 0.18;
@@ -22,8 +24,12 @@ public class SilverAccount extends Account  {
         double totalCharges = 0.0;
         double totalCredits = 0.0;
         for (IEntry entry : entryList) {
-            totalCharges += entry.getWithdrawOrCharge();
-            totalCredits += entry.getDeposit();
+            LocalDate entryDate = entry.getDate();
+            LocalDate now = LocalDate.now();
+            if (entryDate.getMonthValue() == now.getMonthValue() && entryDate.getMonthValue() == now.getMonthValue()) {
+                totalCharges += entry.getWithdrawOrCharge();
+                totalCredits += entry.getDeposit();
+            }
         }
         double newBalance = monthlyBalance.getStartingBalance() - totalCredits + totalCharges + MI * (monthlyBalance.getStartingBalance() - totalCredits);
         double totalDue = MP * newBalance;
