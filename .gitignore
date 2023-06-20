@@ -1,0 +1,11 @@
+HELP.md
+target/
+
+.idea
+*.iws
+*.iml
+*.ipr
+
+
+# Project exclude paths
+/out/
