@@ -9,9 +9,11 @@ import java.time.LocalDate;
 public class GoldAccount extends Account  {
     private double MI = 0.12;
     private double MP = 0.12;
+    private LocalDate expDate;
 
-    public GoldAccount(String accNumber, double balance, ICustomer customer) {
+    public GoldAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
         super(accNumber, balance, customer);
+        this.expDate = expDate;
     }
 
     @Override

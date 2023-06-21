@@ -15,6 +15,15 @@ public abstract class Customer implements ICustomer {
     BiPredicate<Double, Double> emailSendingCondition = (balance, amount) -> true;
     List<IAccount> accountList;
 
+    public Customer(String name, String email, String street, String city, String state, String zip) {
+        this.name = name;
+        this.email = email;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+    }
+
     public void addAccount(IAccount account) {
         accountList.add(account);
     }
