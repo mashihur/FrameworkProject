@@ -74,6 +74,6 @@ public abstract class Account implements IAccount{
                 .append("Total deposit: " + totalDeposit + "\n")
                 .append("Total withdrawal: " + totalWithdrawal + "\n")
                 .append("Current balance: " + balance + "\n");
-        return null;
+        return recordBuilder.toString();
     }
 }

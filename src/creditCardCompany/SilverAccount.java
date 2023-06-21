@@ -10,9 +10,9 @@ import java.time.LocalDate;
 public class SilverAccount extends Account  {
     private double MI = 0.16;
     private double MP = 0.18;
-    private String expDate;
+    private LocalDate expDate;
 
-    public SilverAccount(String accNumber, double balance, ICustomer customer, String expDate) {
+    public SilverAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
         super(accNumber, balance, customer);
         this.expDate = expDate;
     }
