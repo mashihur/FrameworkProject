@@ -1,6 +1,5 @@
 package framework;
 
-import bankingSystem.Bank;
 import creditCardCompany.CCCompany;
 import framework.account.AccountFactory;
 import framework.account.IAccount;
@@ -9,7 +8,6 @@ import framework.customer.ICompany;
 import framework.customer.ICustomer;
 import framework.customer.IPerson;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +20,7 @@ public class FinCo {
         FinCo finCo = new CCCompany();
         finCo.createPersonalAccount(Constants.PERSONAL_ACCOUNT,"101",0.0,"12 Jan", "Mashihur","mas@gmial.com","100 north","fairfield","Iowa", "52557", "23");
 //        finCo.depositMoney(634.5, finCo.customerList.get(0).getAccountList().get(0));
-        finCo.withdrawOrChargeMoney(534.5, finCo.customerList.get(0).getAccountList().get(0));
+        finCo.withdrawOrCharge(534.5, finCo.customerList.get(0).getAccountList().get(0));
     }
 
     public IPerson createPersonalAccount(String accType, String accountNumber, double balance, String expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
@@ -44,11 +42,11 @@ public class FinCo {
         customer.addAccount(account);
     }
 
-    public void depositMoney(double amount, IAccount account) {
+    public void deposit(double amount, IAccount account) {
         account.deposit(amount);
     }
 
-    public void withdrawOrChargeMoney(double amount, IAccount account) {
+    public void withdrawOrCharge(double amount, IAccount account) {
         account.withdrawOrCharge(amount);
     }
 
