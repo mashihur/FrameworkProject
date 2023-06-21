@@ -16,24 +16,17 @@ public class FinCoFrame extends javax.swing.JFrame {
 	// clientType, amountDeposit;
 	String amountDeposit;
 
-	FinCoTableModel model;
-
 	JTable JTable1;
 	private JScrollPane JScrollPane1;
 	protected FinCoFrame myframe;
-	FinCo finco;
-
-	protected FinCo createFinCo() {
-		return new FinCo();
-	}
-
+	
+	protected FinCo finco;
+	
 	public FinCo getFinco() {
 		return finco;
 	}
 
-	protected FinCoTableModel createTableModel() {
-		return new FinCoTableModel(myframe);
-	}
+	protected FinCoTableModel model;
 
 	public FinCoTableModel getModel() {
 		return model;
@@ -55,11 +48,11 @@ public class FinCoFrame extends javax.swing.JFrame {
 		 * /for Adding personal account, Adding company account
 		 * /Deposit, Withdraw and Exit from the system
 		 */
-		finco = this.createFinCo();
+		finco = new FinCo();
 
 		JScrollPane1 = new JScrollPane();
 
-		model = this.createTableModel();
+		model = new FinCoTableModel(myframe);
 
 		JTable1 = new JTable(model);
 
@@ -110,30 +103,6 @@ public class FinCoFrame extends javax.swing.JFrame {
 		JButton_Withdraw.addActionListener(lSymAction);
 		JButton_Addinterest.addActionListener(lSymAction);
 
-	}
-
-	/*****************************************************
-	 * The entry point for this application.
-	 * Sets the Look and Feel to the System Look and Feel.
-	 * Creates a new JFrame1 and makes it visible.
-	 *****************************************************/
-	static public void main(String args[]) {
-		try {
-			// Add the following code if you want the Look and Feel
-			// to be set to the Look and Feel of the native system.
-
-			try {
-				UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-			} catch (Exception e) {
-			}
-
-			// Create a new instance of our application's frame, and make it visible.
-			(new FinCoFrame()).setVisible(true);
-		} catch (Throwable t) {
-			t.printStackTrace();
-			// Ensure the application exits with an error condition.
-			System.exit(1);
-		}
 	}
 
 	javax.swing.JPanel JPanel1 = new javax.swing.JPanel();

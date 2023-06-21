@@ -7,15 +7,11 @@ import framework.ui.FinCoFrame;
 import framework.ui.FinCoTableModel;
 
 public class BankFrame extends FinCoFrame {	
-	
-    @Override
-	protected FinCo createFinCo() {
-		return new Bank();
-	}
 
-	@Override
-	protected FinCoTableModel createTableModel() {
-		return new BankTableModel(myframe);
+	public BankFrame(FinCo finCo, FinCoTableModel model) {
+		super();
+		this.finco = finco;
+		this.model = model;
 	}
 	
 	@Override
