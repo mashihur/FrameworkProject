@@ -9,33 +9,39 @@ public class JDialog_Deposit extends javax.swing.JDialog {
 		super(parent);
 		parentframe = parent;
 		accnr = aaccnr;
-		
+
 		setTitle("Deposit");
 		setModal(true);
 		getContentPane().setLayout(null);
 		setSize(266, 126);
 		setVisible(false);
+
 		JLabel1.setText("Acc Nr");
-		getContentPane().add(JLabel1);
 		JLabel1.setForeground(java.awt.Color.black);
 		JLabel1.setBounds(12, 12, 48, 24);
+		getContentPane().add(JLabel1);
+
 		JLabel2.setText("Amount");
-		getContentPane().add(JLabel2);
 		JLabel2.setForeground(java.awt.Color.black);
 		JLabel2.setBounds(12, 48, 48, 24);
+		getContentPane().add(JLabel2);
+
 		JTextField_NAME.setEditable(false);
-		getContentPane().add(JTextField_NAME);
 		JTextField_NAME.setBounds(84, 12, 144, 24);
+		getContentPane().add(JTextField_NAME);
+
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
-		getContentPane().add(JButton_OK);
 		JButton_OK.setBounds(36, 84, 84, 24);
+		getContentPane().add(JButton_OK);
+
 		JButton_Cancel.setText("Cancel");
 		JButton_Cancel.setActionCommand("Cancel");
-		getContentPane().add(JButton_Cancel);
 		JButton_Cancel.setBounds(156, 84, 84, 24);
-		getContentPane().add(JTextField_Deposit);
+		getContentPane().add(JButton_Cancel);
+
 		JTextField_Deposit.setBounds(84, 48, 144, 24);
+		getContentPane().add(JTextField_Deposit);
 		// }}
 		JTextField_NAME.setText(accnr);
 
@@ -66,8 +72,8 @@ public class JDialog_Deposit extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		// parentframe.getFinco().depositMoney(Double.parseDouble(JTextField_Deposit.getText()), 
-		// parentframe.getFinco().getCustomerByName(JTextField_NAME.getText()));
+		parentframe.getFinco().deposit(Double.parseDouble(JTextField_Deposit.getText()),
+				parentframe.getFinco().getAccountByAccountNumber(accnr));
 		parentframe.amountDeposit = JTextField_Deposit.getText();
 		dispose();
 	}

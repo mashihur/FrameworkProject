@@ -51,11 +51,11 @@ public class FinCo {
         customer.addAccount(account);
     }
 
-    public void depositMoney(double amount, IAccount account) {
+    public void deposit(double amount, IAccount account) {
         account.deposit(amount);
     }
 
-    public void withdrawOrChargeMoney(double amount, IAccount account) {
+    public void withdrawOrCharge(double amount, IAccount account) {
         account.withdrawOrCharge(amount);
     }
 
