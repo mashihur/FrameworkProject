@@ -2,6 +2,7 @@ package framework.customer;
 
 import framework.account.IAccount;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiPredicate;
 
@@ -13,7 +14,7 @@ public abstract class Customer implements ICustomer {
     String state;
     String zip;
     BiPredicate<Double, Double> emailSendingCondition = (balance, amount) -> true;
-    List<IAccount> accountList;
+    List<IAccount> accountList = new ArrayList<>();
 
     public Customer(String name, String email, String street, String city, String state, String zip) {
         this.name = name;

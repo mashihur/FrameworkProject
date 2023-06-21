@@ -1,5 +1,6 @@
 package framework;
 
+import bankingSystem.Bank;
 import framework.account.AccountFactory;
 import framework.account.IAccount;
 import framework.customer.CustomerFactory;
@@ -17,8 +18,10 @@ public class FinCo {
 
     public static void main(String[] args) {
         System.out.println("hello world");
-        FinCo finCo = new FinCo();
-//        finCo.createPersonalAccount("A")
+//        FinCo finCo = new Bank();
+//        finCo.createPersonalAccount(Constants.PERSONAL_ACCOUNT,"101",0.0,"12 Jan", "Mashihur","mas@gmial.com","100 north","fairfield","Iowa", "52557", "23");
+//        finCo.depositMoney(634.5, finCo.customerList.get(0).getAccountList().get(0));
+//        finCo.withdrawOrChargeMoney(734.5, finCo.customerList.get(0).getAccountList().get(0));
     }
 
     public IPerson createPersonalAccount(String accType, String accountNumber, double balance, String expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
