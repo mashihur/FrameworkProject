@@ -56,7 +56,7 @@ public class CopperAccount extends Account  {
                 .append("Total charges: " + totalCharges + "\n")
                 .append("Total credits: " + totalCredits + "\n")
                 .append("New balance: " + newBalance + "\n")
-                .append("Total Due: " + totalDue + "\n");
+                .append("Total Due: " + totalDue + "\n\n");
         return recordBuilder.toString();
     }
 }

@@ -78,7 +78,7 @@ public abstract class Account implements IAccount{
                 .append("Previous balance: " + monthlyBalance.getStartingBalance() + "\n")
                 .append("Total deposit: " + totalDeposit + "\n")
                 .append("Total withdrawal: " + totalWithdrawal + "\n")
-                .append("Current balance: " + balance + "\n");
+                .append("Current balance: " + balance + "\n\n");
         return recordBuilder.toString();
     }
 }
