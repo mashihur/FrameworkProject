@@ -9,9 +9,9 @@ import java.time.LocalDate;
 public class CopperAccount extends Account  {
     private double MI = 0.20;
     private double MP = 0.24;
-    private LocalDate expDate;
+    private String expDate;
 
-    public CopperAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
+    public CopperAccount(String accNumber, double balance, ICustomer customer, String expDate) {
         super(accNumber, balance, customer);
         this.expDate = expDate;
     }

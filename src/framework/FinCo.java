@@ -17,23 +17,25 @@ public class FinCo {
 
     public static void main(String[] args) {
         System.out.println("hello world");
+        FinCo finCo = new FinCo();
+//        finCo.createPersonalAccount("A")
     }
 
-    public IPerson createPersonalAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
+    public IPerson createPersonalAccount(String accType, String accountNumber, double balance, String expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
         IPerson person = new CustomerFactory().createPerson(name, email, street, city, state, zip, birthday);
         addAccount(accType,person, accountNumber, balance, expDate);
         customerList.add(person);
         return person;
     }
 
-    public ICompany createCompanyAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
+    public ICompany createCompanyAccount(String accType, String accountNumber, double balance, String expDate, String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
         ICompany company = new CustomerFactory().createCompany(name, email, street, city, state, zip, noOfEmployee);
         addAccount(accType, company, accountNumber, balance, expDate);
         customerList.add(company);
         return company;
     }
 
-    public void addAccount(String accountType, ICustomer customer, String accountNumber, double balance, LocalDate expDate) {
+    public void addAccount(String accountType, ICustomer customer, String accountNumber, double balance, String expDate) {
         IAccount account = new AccountFactory().createAccount(accountType, accountNumber, balance, customer, expDate);
         customer.addAccount(account);
     }
