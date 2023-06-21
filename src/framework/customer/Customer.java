@@ -49,6 +49,11 @@ public abstract class Customer implements ICustomer {
     }
 
     @Override
+    public String getCityName() {
+        return city;
+    }
+
+    @Override
     public void addInterest(double interest) {
         for (IAccount account : accountList) {
             account.addInterest(interest);
