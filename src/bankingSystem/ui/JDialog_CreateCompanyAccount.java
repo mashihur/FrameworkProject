@@ -138,6 +138,10 @@ public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {
 			accountType = BankConstants.SAVINGS_ACCOUNT;
 		}
 
+		int noOfEmployee = 0;
+		try {
+			noOfEmployee = Integer.parseInt(JTextField_NoOfEmp.getText());
+		} catch (Exception e) {}
 		this.parentFrame.getFinCo().createCompanyAccount(
 				accountType,
 				JTextField_ACNR.getText(),
@@ -149,7 +153,8 @@ public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {
 				JTextField_CT.getText(),
 				JTextField_ST.getText(),
 				JTextField_ZIP.getText(),
-				Integer.parseInt(JTextField_NoOfEmp.getText()));
+				noOfEmployee);
+
 
         this.parentFrame.getModel().update(this.parentFrame.getFinCo());
 

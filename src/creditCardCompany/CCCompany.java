@@ -40,6 +40,8 @@ public class CCCompany extends FinCo {
             String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
         ICustomer company = customerFactory.createCustomer(Constants.COMPANY_ACCOUNT, name, email, street, city, state,
                 zip, null, noOfEmployee);
+        BiPredicate<Double, Double> emailSendingCondition = (resultingBalance, amount) -> (amount > 600);
+        company.setEmailSendingCondition(emailSendingCondition);
         IAccount newAccount = addAccount(accType, company, accountNumber, balance, expDate);
         customerList.add(company);
         return newAccount;
