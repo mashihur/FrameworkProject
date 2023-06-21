@@ -24,8 +24,7 @@ public class JDialog_GenerateReport extends javax.swing.JDialog {
 		getContentPane().add(JButton_OK);
 		JButton_OK.setBounds(156, 276, 96, 24);
 
-		billstring = parent.getFinco().generateAccountReport();
-		System.out.println(billstring);
+		billstring = parent.getFinCo().generateAccountReport();
 
 		JTextField1.setText(billstring);
 		// }}

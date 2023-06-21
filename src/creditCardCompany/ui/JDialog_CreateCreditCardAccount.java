@@ -3,6 +3,7 @@ package creditCardCompany.ui;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import framework.account.IAccount;
 import framework.ui.FinCoFrame;
 
 public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
@@ -166,7 +167,7 @@ public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 			accountType = "Copper";
 		}
 
-		this.parentFrame.getFinco().createPersonalAccount(
+		IAccount newAccount = this.parentFrame.getFinCo().createPersonalAccount(
 				accountType,
 				JTextField_ACNR.getText(),
 				0,
@@ -179,14 +180,7 @@ public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 				JTextField_ZIP.getText(),
 				JTextField_BD.getText());
 
-		System.out.println(this.parentFrame.getFinco().getCustomerList());
-
-		this.parentFrame.getModel().addRowData(JTextField_ACNR.getText(),
-				JTextField_NAME.getText(),
-				JTextField_CT.getText(),
-				"P",
-				accountType,
-				"0");
+		this.parentFrame.getModel().addNewRow(newAccount);
 
 		dispose();
 

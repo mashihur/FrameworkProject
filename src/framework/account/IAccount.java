@@ -1,5 +1,7 @@
 package framework.account;
 
+import framework.customer.ICustomer;
+
 public interface IAccount {
      void addInterest(double interest);
      String generateMonthlyRecord();
@@ -7,4 +9,5 @@ public interface IAccount {
      void deposit(double amount);
      void withdrawOrCharge(double amount);
      String getAccountNumber();
+     ICustomer getCustomer();
 }

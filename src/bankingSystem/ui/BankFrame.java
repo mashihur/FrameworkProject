@@ -1,16 +1,14 @@
 package bankingSystem.ui;
 
-import framework.FinCo;
+import bankingSystem.Bank;
 import framework.ui.FinCoFrame;
-import framework.ui.FinCoTableModel;
 
 public class BankFrame extends FinCoFrame {	
 
-	public BankFrame(FinCo finCo, FinCoTableModel model) {
+	public BankFrame() {
 		super();
-		this.finco = finco;
-		this.model = model;
-		this.model.setFinCo(finCo);
+		this.setFinCo(new Bank());
+		this.setModel(new BankTableModel());
 	}
 	
 	@Override

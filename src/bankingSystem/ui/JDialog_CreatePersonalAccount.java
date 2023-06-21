@@ -3,6 +3,7 @@ package bankingSystem.ui;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import framework.account.IAccount;
 import framework.ui.FinCoFrame;
 
 public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
@@ -168,7 +169,7 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 			accountType = "S";
 		}
 
-		this.parentFrame.getFinco().createPersonalAccount(
+		IAccount newAccount = this.parentFrame.getFinCo().createPersonalAccount(
 				accountType,
 				JTextField_ACNR.getText(),
 				0,
@@ -181,12 +182,7 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 				JTextField_ZIP.getText(),
 				JTextField_BD.getText());
 
-		this.parentFrame.getModel().addRowData(JTextField_ACNR.getText(),
-				JTextField_NAME.getText(),
-				JTextField_CT.getText(),
-				"P",
-				accountType,
-				"0");
+		this.parentFrame.getModel().addNewRow(newAccount);
 
 		dispose();
 	}

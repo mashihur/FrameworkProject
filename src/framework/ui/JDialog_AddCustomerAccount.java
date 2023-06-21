@@ -2,6 +2,8 @@ package framework.ui;
 
 import java.time.LocalDate;
 
+import framework.account.IAccount;
+
 public class JDialog_AddCustomerAccount extends javax.swing.JDialog {
     FinCoFrame parentFrame;
 
@@ -15,15 +17,20 @@ public class JDialog_AddCustomerAccount extends javax.swing.JDialog {
         setSize(298, 339);
         setVisible(false);
 
-		JRadioButton_Chk.setText("Type A");
-		JRadioButton_Chk.setActionCommand("Type A");
-		JRadioButton_Chk.setBounds(36, 12, 84, 24);
-		getContentPane().add(JRadioButton_Chk);
-		
-		JRadioButton_Sav.setText("Type B");
-		JRadioButton_Sav.setActionCommand("Type B");
-		JRadioButton_Sav.setBounds(36, 36, 84, 24);
-		getContentPane().add(JRadioButton_Sav);
+        JRadioButton_Chk.setText("Type A");
+        JRadioButton_Chk.setActionCommand("Type A");
+        JRadioButton_Chk.setBounds(36, 12, 84, 24);
+        JRadioButton_Chk.setSelected(false);
+        getContentPane().add(JRadioButton_Chk);
+
+        JRadioButton_Sav.setText("Type B");
+        JRadioButton_Sav.setActionCommand("Type B");
+        JRadioButton_Sav.setBounds(36, 36, 84, 24);
+        JRadioButton_Sav.setSelected(true);
+        getContentPane().add(JRadioButton_Sav);
+
+        group.add(JRadioButton_Chk);
+        group.add(JRadioButton_Sav);
 
         JLabel1.setText("Name");
         JLabel1.setForeground(java.awt.Color.black);
@@ -61,6 +68,7 @@ public class JDialog_AddCustomerAccount extends javax.swing.JDialog {
     // {{DECLARE_CONTROLS
     javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
     javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
+    javax.swing.ButtonGroup group = new javax.swing.ButtonGroup();
 
     javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
     javax.swing.JLabel JLabel8 = new javax.swing.JLabel();
@@ -82,43 +90,22 @@ public class JDialog_AddCustomerAccount extends javax.swing.JDialog {
         }
     }
 
-    void JRadioButtonChk_mouseClicked(java.awt.event.MouseEvent event) {
-        // When Checking radio is clicked make this radio on
-        // and make Saving account radio off
-        JRadioButton_Chk.setSelected(true);
-        JRadioButton_Sav.setSelected(false);
-    }
-
-    void JRadioButtonSav_mouseClicked(java.awt.event.MouseEvent event) {
-        // When Saving radio is clicked make this radio on
-        // and make Checking account radio off
-        JRadioButton_Chk.setSelected(false);
-        JRadioButton_Sav.setSelected(true);
-
-    }
-
     void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		String accountType;
-		if (JRadioButton_Chk.isSelected()) {
-			accountType = "A";
-		} else {
-			accountType = "B";
-		}
+        String accountType;
+        if (JRadioButton_Chk.isSelected()) {
+            accountType = "A";
+        } else {
+            accountType = "B";
+        }
 
-        this.parentFrame.getFinco().addAccount(
+        IAccount newAccount = this.parentFrame.getFinCo().addAccount(
                 accountType,
-                this.parentFrame.getFinco().getCustomerByName(JTextField_NAME.getText()),
+                this.parentFrame.getFinCo().getCustomerByName(JTextField_NAME.getText()),
                 JTextField_ACNR.getText(),
                 0,
                 LocalDate.now().plusMonths(12));
 
-        this.parentFrame.getModel().addRowData(
-                JTextField_ACNR.getText(),
-                JTextField_NAME.getText(),
-                "",
-                "",
-                accountType,
-                "0");
+        this.parentFrame.getModel().addNewRow(newAccount);
 
         dispose();
 

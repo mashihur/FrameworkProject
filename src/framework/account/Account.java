@@ -1,5 +1,6 @@
 package framework.account;
 
+import framework.customer.Customer;
 import framework.customer.ICustomer;
 
 import java.time.LocalDate;
@@ -46,6 +47,11 @@ public abstract class Account implements IAccount{
     @Override
     public String getAccountNumber() {
         return accNumber;
+    }
+
+    @Override
+    public ICustomer getCustomer() {
+        return this.customer;
     }
 
     @Override

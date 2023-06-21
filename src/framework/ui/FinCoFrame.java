@@ -19,14 +19,22 @@ public class FinCoFrame extends javax.swing.JFrame {
 	JTable JTable1;
 	private JScrollPane JScrollPane1;
 	protected FinCoFrame myframe;
-	
-	protected FinCo finco;
-	
-	public FinCo getFinco() {
-		return finco;
+
+	protected FinCo finCo;
+	protected FinCoTableModel model;
+
+	public void setFinCo(FinCo finCo) {
+		this.finCo = finCo;
 	}
 
-	protected FinCoTableModel model;
+	public FinCo getFinCo() {
+		return finCo;
+	}
+
+	public void setModel(FinCoTableModel model) {
+		this.model = model;
+		JTable1.setModel(model);
+	}
 
 	public FinCoTableModel getModel() {
 		return model;
@@ -40,21 +48,20 @@ public class FinCoFrame extends javax.swing.JFrame {
 		getContentPane().setLayout(new BorderLayout(0, 0));
 		setSize(600, 350);
 		setVisible(false);
+
 		JPanel1.setLayout(null);
-		getContentPane().add(BorderLayout.CENTER, JPanel1);
 		JPanel1.setBounds(0, 0, 600, 350);
+		getContentPane().add(BorderLayout.CENTER, JPanel1);
 		/*
 		 * /Add five buttons on the pane
 		 * /for Adding personal account, Adding company account
 		 * /Deposit, Withdraw and Exit from the system
 		 */
-		finco = new FinCo();
+		finCo = new FinCo();
 
 		JScrollPane1 = new JScrollPane();
 
 		model = new FinCoTableModel();
-		
-		model.setFinCo(finco);
 
 		JTable1 = new JTable(model);
 
@@ -214,10 +221,10 @@ public class FinCoFrame extends javax.swing.JFrame {
 			// compute new amount
 			if (amountDeposit != null) {
 				long deposit = Long.parseLong(amountDeposit);
-				String samount = (String) model.getValueAt(selection, 5);
+				String samount = (String) model.getValueAt(selection, model.getColumnCount()-1);
 				long currentamount = Long.parseLong(samount);
 				long newamount = currentamount + deposit;
-				model.setValueAt(String.valueOf(newamount), selection, 5);
+				model.setValueAt(String.valueOf(newamount), selection, model.getColumnCount()-1);
 				amountDeposit = null;
 			}
 		}
@@ -238,10 +245,10 @@ public class FinCoFrame extends javax.swing.JFrame {
 			// compute new amount
 			if (amountDeposit != null) {
 				long deposit = Long.parseLong(amountDeposit);
-				String samount = (String) model.getValueAt(selection, 5);
+				String samount = (String) model.getValueAt(selection, model.getColumnCount()-1);
 				long currentamount = Long.parseLong(samount);
 				long newamount = currentamount - deposit;
-				model.setValueAt(String.valueOf(newamount), selection, 5);
+				model.setValueAt(String.valueOf(newamount), selection, model.getColumnCount()-1);
 				if (newamount < 0) {
 					JOptionPane.showMessageDialog(JButton_Withdraw,
 							" Account " + accnr + " : balance is negative: $" + String.valueOf(newamount) + " !",

@@ -39,7 +39,7 @@ public abstract class Customer implements ICustomer {
         }
     }
 
-    public  void setEmailSendingCondition(BiPredicate<Double, Double> emailSendingCondition) {
+    public void setEmailSendingCondition(BiPredicate<Double, Double> emailSendingCondition) {
         this.emailSendingCondition = emailSendingCondition;
     }
 

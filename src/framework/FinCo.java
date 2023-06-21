@@ -19,7 +19,7 @@ public class FinCo {
         customerFactory = new CustomerFactory();
         accountFactory = new AccountFactory();
     }
-    
+
     public static void main(String[] args) {
         (new FinCoFrame()).setVisible(true);
     }
@@ -30,23 +30,40 @@ public class FinCo {
         return customerList;
     }
 
-    public ICustomer createPersonalAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
+    public ICustomer getCustomerByName(String name) {
+        for (ICustomer customer : customerList) {
+            if (customer.getCustomerName().equals(name)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+
+    // public IAccount getAccountByNumber(String accNr) {
+
+    // }
+
+    public IAccount createPersonalAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
         ICustomer person = customerFactory.createCustomer(Constants.PERSONAL_ACCOUNT,name, email, street, city, state, zip, birthday, 0);
-        addAccount(accType,person, accountNumber, balance, expDate);
+        IAccount newAccount = addAccount(accType,person, accountNumber, balance, expDate);
         customerList.add(person);
-        return person;
+        return newAccount;
     }
 
-    public ICustomer createCompanyAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
-        ICustomer company = customerFactory.createCustomer(Constants.COMPANY_ACCOUNT,name, email, street, city, state, zip, null, noOfEmployee);
-        addAccount(accType, company, accountNumber, balance, expDate);
+    public IAccount createCompanyAccount(String accType, String accountNumber, double balance, LocalDate expDate,
+            String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
+        ICustomer company = customerFactory.createCustomer(Constants.COMPANY_ACCOUNT, name, email, street, city, state,
+                zip, null, noOfEmployee);
+        IAccount newAccount = addAccount(accType, company, accountNumber, balance, expDate);
         customerList.add(company);
-        return company;
+        return newAccount;
     }
 
-    public void addAccount(String accountType, ICustomer customer, String accountNumber, double balance, LocalDate expDate) {
+    public IAccount addAccount(String accountType, ICustomer customer, String accountNumber, double balance,
+            LocalDate expDate) {
         IAccount account = accountFactory.createAccount(accountType, accountNumber, balance, customer, expDate);
         customer.addAccount(account);
+        return account;
     }
 
     public void deposit(double amount, IAccount account) {
@@ -71,15 +88,6 @@ public class FinCo {
         return reportBuilder.toString();
     }
 
-    public ICustomer getCustomerByName(String name) {
-        for (ICustomer customer: getCustomerList()) {
-            if (customer.getCustomerName().equals(name)) {
-                return customer;
-            }
-        }
-        return null;
-    }
-
     public IAccount getAccountByAccountNumber(String accountNumber) {
         IAccount account = null;
         for (ICustomer customer : customerList) {
@@ -91,6 +99,5 @@ public class FinCo {
         }
         return account;
     }
-
 
 }

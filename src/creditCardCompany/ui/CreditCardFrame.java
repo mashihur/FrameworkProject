@@ -1,16 +1,14 @@
 package creditCardCompany.ui;
 
-import framework.FinCo;
+import creditCardCompany.CCCompany;
 import framework.ui.FinCoFrame;
-import framework.ui.FinCoTableModel;;
 
 public class CreditCardFrame extends FinCoFrame {
 	
-	public CreditCardFrame(FinCo finCo, FinCoTableModel model) {
+	public CreditCardFrame() {
 		super();
-		this.finco = finco;
-		this.model = model;
-		this.model.setFinCo(finCo);
+		this.setFinCo(new CCCompany());
+		this.setModel(new CreditTableModel());
 	}
 	
 	@Override

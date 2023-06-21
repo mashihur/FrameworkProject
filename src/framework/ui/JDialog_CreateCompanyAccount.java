@@ -2,6 +2,8 @@ package framework.ui;
 
 import java.time.LocalDate;
 
+import framework.account.IAccount;
+
 public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {
 	FinCoFrame parentFrame;
 
@@ -151,7 +153,7 @@ public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {
 			accountType = "B";
 		}
 
-		this.parentFrame.getFinco().createCompanyAccount(
+		IAccount newAccount = this.parentFrame.getFinCo().createCompanyAccount(
 				accountType,
 				JTextField_ACNR.getText(),
 				0,
@@ -165,12 +167,7 @@ public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {
 				// Integer.parseInt(JTextField_NoOfEmp.getText()));
 				0);
 
-		this.parentFrame.getModel().addRowData(JTextField_ACNR.getText(),
-				JTextField_NAME.getText(),
-				JTextField_CT.getText(),
-				"C",
-				accountType,
-				"0");
+		this.parentFrame.getModel().addNewRow(newAccount);
 
 		dispose();
 

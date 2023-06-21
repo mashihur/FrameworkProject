@@ -6,45 +6,32 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import framework.FinCo;
+import framework.account.IAccount;
 import framework.customer.ICustomer;
 
 public class FinCoTableModel extends DefaultTableModel {
-
-    private FinCo finCo;
 
     public FinCoTableModel() {
         super();
         this.addAllColumns();
     }
 
-    public void setFinCo(FinCo finCo) {
-        this.finCo = finCo;
-    }
-
-    public void update() {
-        // for (ICustomer customer : this.parentFrame.getFinco().getCustomerList()) {
-        //     customer.name;
-        // }
-    }
-
-    public void addRowData(String accNr, String name, String city, String cusType, String accType, String amount) {
+    public void addNewRow(IAccount newAccount) {
         List<String> rowData = new ArrayList<>();
-        rowData.add(accNr);
-        rowData.add(name);
-        rowData.add(city);
-        rowData.add(cusType);
-        rowData.add(accType);
-        rowData.add(amount);
+        ICustomer customer = newAccount.getCustomer();
+        rowData.add(newAccount.getAccountNumber());
+        rowData.add(customer.getCustomerName());
+        rowData.add(customer.getCityName());
+        rowData.add("");
+        rowData.add("0");
         this.addRow(rowData.toArray());
     }
 
-
-    private void addAllColumns() {
+    protected void addAllColumns() {
         addColumn("AcctNr");
         addColumn("Name");
         addColumn("City");
         addColumn("P/C");
-        addColumn("Ch/S");
         addColumn("Amount");
     }
 
