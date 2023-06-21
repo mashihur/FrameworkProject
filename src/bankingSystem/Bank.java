@@ -29,7 +29,7 @@ public class Bank extends FinCo {
         ICustomer person = customerFactory.createCustomer(Constants.PERSONAL_ACCOUNT, name, email, street, city, state,
                 zip, birthday, 0);
         BiPredicate<Double, Double> emailSendingCondition = (resultingBalance, amount) -> resultingBalance < 0
-                || (amount > 600);
+                || (amount > 400);
         person.setEmailSendingCondition(emailSendingCondition);
         IAccount newAccount = addAccount(accType, person, accountNumber, balance, expDate);
         customerList.add(person);
