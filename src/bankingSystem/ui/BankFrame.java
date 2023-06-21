@@ -1,8 +1,16 @@
 package bankingSystem.ui;
 
+import bankingSystem.Bank;
+import framework.FinCo;
 import framework.ui.FinCoFrame;
 
-public class BankFrame extends FinCoFrame {
+public class BankFrame extends FinCoFrame {	
+	
+    @Override
+	protected FinCo createFinCo() {
+		return new Bank();
+	}
+	
 	@Override
 	protected void createNewAccountButton() {
 		JDialog_ChooseNewBankAccountType pac = new JDialog_ChooseNewBankAccountType(this);

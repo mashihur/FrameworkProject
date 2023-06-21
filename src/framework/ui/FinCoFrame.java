@@ -33,6 +33,10 @@ public class FinCoFrame extends javax.swing.JFrame {
 		return model;
 	}
 
+	protected FinCo createFinCo() {
+		return new FinCo();
+	}
+
 	public FinCoFrame() {
 		myframe = this;
 
@@ -49,7 +53,7 @@ public class FinCoFrame extends javax.swing.JFrame {
 		 * /for Adding personal account, Adding company account
 		 * /Deposit, Withdraw and Exit from the system
 		 */
-		finco = new FinCo();
+		finco = this.createFinCo();
 
 		JScrollPane1 = new JScrollPane();
 
@@ -68,7 +72,7 @@ public class FinCoFrame extends javax.swing.JFrame {
 		JButton_NewAccount.setBounds(24, 20, 160, 33);
 		JPanel1.add(JButton_NewAccount);
 
-		JButton_AddAC.setText("Add customer's account");
+		JButton_AddAC.setText("Add account");
 		JButton_AddAC.setBounds(224, 20, 160, 33);
 		JPanel1.add(JButton_AddAC);
 

@@ -52,6 +52,6 @@ public class SilverAccount extends Account  {
                 .append("Total credits: " + totalCredits + "\n")
                 .append("New balance: " + newBalance + "\n")
                 .append("Total Due: " + totalDue + "\n");
-        return null;
+        return recordBuilder.toString();
     }
 }

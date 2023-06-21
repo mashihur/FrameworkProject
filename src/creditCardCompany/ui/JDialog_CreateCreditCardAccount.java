@@ -7,6 +7,7 @@ import framework.ui.FinCoFrame;
 
 public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 	FinCoFrame parentFrame;
+
 	public JDialog_CreateCreditCardAccount(CreditCardFrame parent) {
 		super(parent);
 		parentFrame = parent;
@@ -70,12 +71,12 @@ public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 		JLabel6.setForeground(java.awt.Color.black);
 		JLabel6.setBounds(12, 224, 96, 24);
 		getContentPane().add(JLabel6);
-		
+
 		JLabel7.setText("Email");
 		JLabel7.setForeground(java.awt.Color.black);
 		JLabel7.setBounds(12, 248, 48, 24);
 		getContentPane().add(JLabel7);
-		
+
 		getContentPane().add(JTextField_ACNR);
 		JTextField_ACNR.setBounds(120, 80, 156, 20);
 
@@ -156,14 +157,14 @@ public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-        String accountType;
-        if (JRadioButton_Gold.isSelected()) {
-            accountType = "Gold";
-        } else if (JRadioButton_Silver.isSelected()) {
-            accountType = "Silver";
-        } else {
-            accountType = "Copper";
-        }
+		String accountType;
+		if (JRadioButton_Gold.isSelected()) {
+			accountType = "Gold";
+		} else if (JRadioButton_Silver.isSelected()) {
+			accountType = "Silver";
+		} else {
+			accountType = "Copper";
+		}
 
 		this.parentFrame.getFinco().createPersonalAccount(
 				accountType,
@@ -177,6 +178,8 @@ public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 				JTextField_ST.getText(),
 				JTextField_ZIP.getText(),
 				JTextField_BD.getText());
+
+		System.out.println(this.parentFrame.getFinco().getCustomerList());
 
 		this.parentFrame.getModel().addRowData(JTextField_ACNR.getText(),
 				JTextField_NAME.getText(),
