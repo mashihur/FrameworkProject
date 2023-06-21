@@ -2,6 +2,7 @@ package creditCardCompany.ui;
 
 import java.time.LocalDate;
 
+import creditCardCompany.CreditConstants;
 import framework.account.IAccount;
 import framework.ui.FinCoFrame;
 
@@ -99,21 +100,20 @@ public class JDialog_AddCustomerCreditAccount extends javax.swing.JDialog {
     void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
         String accountType;
         if (JRadioButton_Gold.isSelected()) {
-            accountType = "Gold";
+            accountType = CreditConstants.GOLD_ACCOUNT;
         } else if (JRadioButton_Silver.isSelected()) {
-            accountType = "Silver";
+            accountType = CreditConstants.SILVER_ACCOUNT;
         } else {
-            accountType = "Copper";
+            accountType = CreditConstants.COPPER_ACCOUNT;
         }
 
-        IAccount newAccount = this.parentFrame.getFinCo().addAccount(
+        this.parentFrame.getFinCo().addAccount(
                 accountType,
                 this.parentFrame.getFinCo().getCustomerByName(JTextField_NAME.getText()),
                 JTextField_ACNR.getText(),
                 0,
                 LocalDate.now().plusMonths(12));
 
-        // this.parentFrame.getModel().addNewRow(newAccount);
         this.parentFrame.getModel().update(this.parentFrame.getFinCo());
 
         dispose();

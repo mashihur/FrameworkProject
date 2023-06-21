@@ -2,6 +2,7 @@ package bankingSystem.ui;
 
 import java.time.LocalDate;
 
+import bankingSystem.BankConstants;
 import framework.account.IAccount;
 
 public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
@@ -91,19 +92,18 @@ public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
     void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		String accountType;
 		if (JRadioButton_Chk.isSelected()) {
-			accountType = "Ch";
+			accountType = BankConstants.CHECKING_ACCOUNT;
 		} else {
-			accountType = "S";
+			accountType = BankConstants.SAVINGS_ACCOUNT;
 		}
 
-        IAccount newAccount = this.parentFrame.getFinCo().addAccount(
+        this.parentFrame.getFinCo().addAccount(
                 accountType,
                 this.parentFrame.getFinCo().getCustomerByName(JTextField_NAME.getText()),
                 JTextField_ACNR.getText(),
                 0,
                 LocalDate.now().plusMonths(12));
 
-        // this.parentFrame.getModel().addNewRow(newAccount);
         this.parentFrame.getModel().update(this.parentFrame.getFinCo());
                 
         dispose();
