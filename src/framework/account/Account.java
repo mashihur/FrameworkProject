@@ -42,7 +42,7 @@ public abstract class Account implements IAccount{
         customer.sendEmailToCustomer(balance, amount);
     }
 
-    private void updateMonthlyBalance(LocalDate date, double balance) {
+    protected void updateMonthlyBalance(LocalDate date, double balance) {
         if (date.getMonthValue() > monthlyBalance.getMonthValue()) {
             monthlyBalance.setStartingBalance(balance);
             monthlyBalance.setMonth(date);

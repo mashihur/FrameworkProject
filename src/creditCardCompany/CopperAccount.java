@@ -1,6 +1,7 @@
 package creditCardCompany;
 
 import framework.account.Account;
+import framework.account.DepositEntry;
 import framework.account.IEntry;
 import framework.customer.ICustomer;
 
@@ -19,6 +20,13 @@ public class CopperAccount extends Account  {
     @Override
     public void addInterest(double interest) {
         MI += interest;
+    }
+
+    @Override
+    public void deposit(double amount) {
+        updateMonthlyBalance(LocalDate.now(), balance);
+        balance += amount;
+        addEntry(new DepositEntry(amount, LocalDate.now(), "Deposit"));
     }
 
     @Override
