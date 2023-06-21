@@ -5,7 +5,7 @@ import framework.account.IEntry;
 import framework.customer.ICustomer;
 
 public class SavingsAccount extends Account {
-    private double INTEREST_RATE = 0.0;
+    private double INTEREST_RATE = 0.12;
 
     public SavingsAccount(String accNumber, double balance, ICustomer customer) {
         super(accNumber, balance, customer);
@@ -13,7 +13,7 @@ public class SavingsAccount extends Account {
 
     @Override
     public void addInterest(double interest) {
-        INTEREST_RATE += interest;
+        balance += balance * INTEREST_RATE;
     }
 
     @Override

@@ -7,7 +7,7 @@ import framework.customer.ICustomer;
 import java.time.LocalDate;
 
 public class CheckingAccount extends Account  {
-    private double INTEREST_RATE = 0.0;
+    private double INTEREST_RATE = 0.1;
 
     public CheckingAccount(String accNumber, double balance, ICustomer customer) {
         super(accNumber, balance, customer);
@@ -16,7 +16,7 @@ public class CheckingAccount extends Account  {
 
     @Override
     public void addInterest(double interest) {
-        INTEREST_RATE += interest;
+        balance += balance * INTEREST_RATE;
     }
 
     @Override

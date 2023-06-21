@@ -3,7 +3,7 @@ package framework.account;
 import framework.customer.ICustomer;
 
 public class ConcreteAccount extends Account {
-    private double INTEREST_RATE = 0.0;
+    private double INTEREST_RATE = 0.1;
 
     public ConcreteAccount(String accNumber, double balance, ICustomer customer) {
         super(accNumber, balance, customer);
@@ -11,7 +11,7 @@ public class ConcreteAccount extends Account {
 
     @Override
     public void addInterest(double interest) {
-        INTEREST_RATE += interest;
+        balance += balance * INTEREST_RATE;
     }
 
     @Override

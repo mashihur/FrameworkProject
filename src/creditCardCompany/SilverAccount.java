@@ -19,9 +19,8 @@ public class SilverAccount extends Account  {
 
     @Override
     public void addInterest(double interest) {
-        MI += interest;
+        balance += balance * MI;
     }
-
     @Override
     public void deposit(double amount) {
         monthlyBalance.update(LocalDate.now(), balance);

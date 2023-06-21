@@ -19,7 +19,7 @@ public class CopperAccount extends Account  {
 
     @Override
     public void addInterest(double interest) {
-        MI += interest;
+        balance += balance * MI;
     }
 
     @Override
