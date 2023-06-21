@@ -15,26 +15,28 @@ public class FinCoFrame extends javax.swing.JFrame {
 	// String accountnr, clientName, street, city, zip, state, accountType,
 	// clientType, amountDeposit;
 	String amountDeposit;
-	boolean newaccount;
 
 	FinCoTableModel model;
 
 	JTable JTable1;
 	private JScrollPane JScrollPane1;
 	protected FinCoFrame myframe;
-	Object rowdata[];
 	FinCo finco;
+
+	protected FinCo createFinCo() {
+		return new FinCo();
+	}
 
 	public FinCo getFinco() {
 		return finco;
 	}
 
-	public FinCoTableModel getModel() {
-		return model;
+	protected FinCoTableModel createTableModel() {
+		return new FinCoTableModel(myframe);
 	}
 
-	protected FinCo createFinCo() {
-		return new FinCo();
+	public FinCoTableModel getModel() {
+		return model;
 	}
 
 	public FinCoFrame() {
@@ -57,11 +59,9 @@ public class FinCoFrame extends javax.swing.JFrame {
 
 		JScrollPane1 = new JScrollPane();
 
-		model = new FinCoTableModel(myframe);
+		model = this.createTableModel();
 
 		JTable1 = new JTable(model);
-		rowdata = new Object[8];
-		newaccount = false;
 
 		JScrollPane1.setBounds(12, 92, 440, 160);
 		JScrollPane1.getViewport().add(JTable1);

@@ -9,8 +9,14 @@ import framework.customer.IPerson;
 import java.time.LocalDate;
 import java.util.function.BiPredicate;
 
+import creditCardCompany.ui.CreditCardFrame;
 
 public class CCCompany extends FinCo {
+    public static void main(String[] args) {
+        CreditCardFrame ccardApp = new CreditCardFrame();
+        ccardApp.setTitle("Credit Card Application");
+        ccardApp.setVisible(true);
+    }
 
     @Override
     public IPerson createPersonalAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, String birthday) {

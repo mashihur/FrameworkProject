@@ -1,14 +1,21 @@
 package bankingSystem.ui;
 
 import bankingSystem.Bank;
+
 import framework.FinCo;
 import framework.ui.FinCoFrame;
+import framework.ui.FinCoTableModel;
 
 public class BankFrame extends FinCoFrame {	
 	
     @Override
 	protected FinCo createFinCo() {
 		return new Bank();
+	}
+
+	@Override
+	protected FinCoTableModel createTableModel() {
+		return new BankTableModel(myframe);
 	}
 	
 	@Override

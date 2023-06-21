@@ -11,7 +11,13 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import framework.ui.FinCoFrame;
+
 public class FinCo {
+    
+    public static void main(String[] args) {
+        (new FinCoFrame()).setVisible(true);
+    }
 
     protected List<ICustomer> customerList = new ArrayList<>();
 
