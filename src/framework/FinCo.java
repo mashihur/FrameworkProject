@@ -52,18 +52,14 @@ public class FinCo {
 
     public void addInterest(double interest) {
         for (ICustomer customer : customerList) {
-            for (IAccount account : customer.getAccountList()) {
-                account.addInterest(interest);
-            }
+            customer.addInterest(interest);
         }
     }
 
     public String generateAccountReport() {
         StringBuilder reportBuilder = new StringBuilder();
         for (ICustomer customer : customerList) {
-            for (IAccount account : customer.getAccountList()) {
-                reportBuilder.append(account.generateMonthlyRecord());
-            }
+            reportBuilder.append(customer.generateAccReport());
         }
         return reportBuilder.toString();
     }

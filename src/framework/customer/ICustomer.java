@@ -11,4 +11,6 @@ public interface ICustomer {
     void setEmailSendingCondition(BiPredicate<Double,Double> predicate);
     List<IAccount> getAccountList();
     String getCustomerName();
+    void addInterest(double interest);
+    String generateAccReport();
 }

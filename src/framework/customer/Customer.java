@@ -48,4 +48,19 @@ public abstract class Customer implements ICustomer {
         return name;
     }
 
+    @Override
+    public void addInterest(double interest) {
+        for (IAccount account : accountList) {
+            account.addInterest(interest);
+        }
+    }
+
+    @Override
+    public String generateAccReport() {
+        StringBuilder reportBuilder = new StringBuilder();
+        for (IAccount account : accountList) {
+            reportBuilder.append(account.generateMonthlyRecord());
+        }
+        return reportBuilder.toString();
+    }
 }
