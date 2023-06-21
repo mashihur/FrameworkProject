@@ -73,4 +73,17 @@ public class FinCo {
         return reportBuilder.toString();
     }
 
+    public IAccount getAccountByAccountNumber(String accountNumber) {
+        IAccount account = null;
+//        customerList.stream().map(c -> c.getAccountList()).filter(c -> c.con)
+        for (ICustomer customer : customerList) {
+            for (IAccount lAccount : customer.getAccountList()) {
+                if (lAccount.getAccountNumber().equals(accountNumber)) {
+                    return lAccount;
+                }
+            }
+        }
+        return account;
+    }
+
 }
