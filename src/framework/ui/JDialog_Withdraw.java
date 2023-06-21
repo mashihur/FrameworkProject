@@ -71,7 +71,8 @@ public class JDialog_Withdraw extends javax.swing.JDialog {
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		parentframe.getFinCo().withdrawOrCharge(Double.parseDouble(JTextField_AMT.getText()),
 				parentframe.getFinCo().getAccountByAccountNumber(accnr));
-		parentframe.amountDeposit = JTextField_AMT.getText();
+				
+        this.parentframe.getModel().update(this.parentframe.getFinCo());
 		dispose();
 	}
 

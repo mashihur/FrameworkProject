@@ -148,10 +148,11 @@ public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {
 				JTextField_CT.getText(),
 				JTextField_ST.getText(),
 				JTextField_ZIP.getText(),
-				// Integer.parseInt(JTextField_NoOfEmp.getText()));
-				0);
+				Integer.parseInt(JTextField_NoOfEmp.getText()));
+				// 0);
 
-		this.parentFrame.getModel().addNewRow(newAccount);
+		// this.parentFrame.getModel().addNewRow(newAccount);
+        this.parentFrame.getModel().update(this.parentFrame.getFinCo());
 
 		dispose();
 

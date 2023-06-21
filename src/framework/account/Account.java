@@ -55,6 +55,11 @@ public abstract class Account implements IAccount{
     }
 
     @Override
+    public double getBalance() {
+        return this.balance;
+    }
+
+    @Override
     public String generateMonthlyRecord() {
         double totalWithdrawal = 0.0;
         double totalDeposit = 0.0;

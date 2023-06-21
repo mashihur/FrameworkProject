@@ -4,6 +4,7 @@ import javax.swing.JOptionPane;
 
 public class JDialog_AddInterest extends javax.swing.JDialog {
     FinCoFrame parentFrame;
+
     public JDialog_AddInterest(FinCoFrame parent) {
         super(parent);
         this.parentFrame = parent;
@@ -62,10 +63,11 @@ public class JDialog_AddInterest extends javax.swing.JDialog {
     }
 
     void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-        // parentframe.amountDeposit = JTextField_Interest.getText();
         this.parentFrame.getFinCo().addInterest(Double.parseDouble(JTextField_Interest.getText()));
         JOptionPane.showMessageDialog(JButton_OK, "Add interest to all accounts",
                 "Add interest to all accounts", JOptionPane.WARNING_MESSAGE);
+
+        this.parentFrame.getModel().update(this.parentFrame.getFinCo());
 
         dispose();
     }

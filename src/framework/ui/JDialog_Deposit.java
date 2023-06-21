@@ -74,7 +74,8 @@ public class JDialog_Deposit extends javax.swing.JDialog {
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
 		parentframe.getFinCo().deposit(Double.parseDouble(JTextField_Deposit.getText()),
 				parentframe.getFinCo().getAccountByAccountNumber(accnr));
-		parentframe.amountDeposit = JTextField_Deposit.getText();
+				
+        this.parentframe.getModel().update(this.parentframe.getFinCo());
 		dispose();
 	}
 

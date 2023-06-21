@@ -219,14 +219,14 @@ public class FinCoFrame extends javax.swing.JFrame {
 			dep.setVisible(true);
 
 			// compute new amount
-			if (amountDeposit != null) {
-				long deposit = Long.parseLong(amountDeposit);
-				String samount = (String) model.getValueAt(selection, model.getColumnCount()-1);
-				long currentamount = Long.parseLong(samount);
-				long newamount = currentamount + deposit;
-				model.setValueAt(String.valueOf(newamount), selection, model.getColumnCount()-1);
-				amountDeposit = null;
-			}
+			// if (amountDeposit != null) {
+			// 	long deposit = Long.parseLong(amountDeposit);
+			// 	String samount = (String) model.getValueAt(selection, model.getColumnCount()-1);
+			// 	long currentamount = Long.parseLong(samount);
+			// 	long newamount = currentamount + deposit;
+			// 	model.setValueAt(String.valueOf(newamount), selection, model.getColumnCount()-1);
+			// 	amountDeposit = null;
+			// }
 		}
 
 	}
@@ -243,28 +243,33 @@ public class FinCoFrame extends javax.swing.JFrame {
 			wd.setVisible(true);
 
 			// compute new amount
-			if (amountDeposit != null) {
-				long deposit = Long.parseLong(amountDeposit);
-				String samount = (String) model.getValueAt(selection, model.getColumnCount()-1);
-				long currentamount = Long.parseLong(samount);
-				long newamount = currentamount - deposit;
-				model.setValueAt(String.valueOf(newamount), selection, model.getColumnCount()-1);
-				if (newamount < 0) {
-					JOptionPane.showMessageDialog(JButton_Withdraw,
-							" Account " + accnr + " : balance is negative: $" + String.valueOf(newamount) + " !",
-							"Warning: negative balance", JOptionPane.WARNING_MESSAGE);
-				}
-				amountDeposit = null;
-			}
+			// if (amountDeposit != null) {
+			// 	long deposit = Long.parseLong(amountDeposit);
+			// 	String samount = (String) model.getValueAt(selection, model.getColumnCount()-1);
+			// 	long currentamount = Long.parseLong(samount);
+			// 	long newamount = currentamount - deposit;
+			// 	model.setValueAt(String.valueOf(newamount), selection, model.getColumnCount()-1);
+			// 	if (newamount < 0) {
+			// 		JOptionPane.showMessageDialog(JButton_Withdraw,
+			// 				" Account " + accnr + " : balance is negative: $" + String.valueOf(newamount) + " !",
+			// 				"Warning: negative balance", JOptionPane.WARNING_MESSAGE);
+			// 	}
+			// 	amountDeposit = null;
+			// }
 
 		}
 
 	}
 
 	void JButtonAddinterest_actionPerformed(java.awt.event.ActionEvent event) {
-		JDialog_AddInterest ai = new JDialog_AddInterest(myframe);
-		ai.setBounds(430, 15, 275, 140);
-		ai.setVisible(true);
-		;
+		this.getFinCo().addInterest(0);
+		this.getModel().update(finCo);
+		javax.swing.JButton JButton_OK = new javax.swing.JButton();
+        JOptionPane.showMessageDialog(JButton_OK, "Add interest to all accounts",
+                "Add interest to all accounts", JOptionPane.WARNING_MESSAGE);
+		// JDialog_AddInterest ai = new JDialog_AddInterest(myframe);
+		// ai.setBounds(430, 15, 275, 140);
+		// ai.setVisible(true);
+		// ;
 	}
 }

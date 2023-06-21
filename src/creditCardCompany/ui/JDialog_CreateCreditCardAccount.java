@@ -180,7 +180,8 @@ public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {
 				JTextField_ZIP.getText(),
 				JTextField_BD.getText());
 
-		this.parentFrame.getModel().addNewRow(newAccount);
+		// this.parentFrame.getModel().addNewRow(newAccount);
+        this.parentFrame.getModel().update(this.parentFrame.getFinCo());
 
 		dispose();
 

@@ -24,78 +24,82 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 		setSize(283, 303);
 		setVisible(false);
 		
-		JRadioButton_Chk.setText("Type A");
-		JRadioButton_Chk.setActionCommand("Type A");
-		JRadioButton_Chk.setBounds(36, 12, 84, 24);
-		getContentPane().add(JRadioButton_Chk);
-		
-		JRadioButton_Sav.setText("Type B");
-		JRadioButton_Sav.setActionCommand("Type B");
-		JRadioButton_Sav.setBounds(36, 36, 84, 24);
-		getContentPane().add(JRadioButton_Sav);
-
 		JLabel1.setText("Name");
-		getContentPane().add(JLabel1);
 		JLabel1.setForeground(java.awt.Color.black);
-		JLabel1.setBounds(12, 84, 48, 24);
+		JLabel1.setBounds(12, 46, 48, 24);
+		getContentPane().add(JLabel1);
+
 		JLabel2.setText("Street");
-		getContentPane().add(JLabel2);
 		JLabel2.setForeground(java.awt.Color.black);
-		JLabel2.setBounds(12, 108, 48, 24);
+		JLabel2.setBounds(12, 70, 48, 24);
+		getContentPane().add(JLabel2);
+		
 		JLabel3.setText("City");
-		getContentPane().add(JLabel3);
 		JLabel3.setForeground(java.awt.Color.black);
-		JLabel3.setBounds(12, 132, 48, 24);
+		JLabel3.setBounds(12, 94, 48, 24);
+		getContentPane().add(JLabel3);
+		
 		JLabel4.setText("State");
-		getContentPane().add(JLabel4);
 		JLabel4.setForeground(java.awt.Color.black);
-		JLabel4.setBounds(12, 156, 48, 24);
+		JLabel4.setBounds(12, 118, 48, 24);
+		getContentPane().add(JLabel4);
+		
 		JLabel5.setText("Zip");
-		getContentPane().add(JLabel5);
 		JLabel5.setForeground(java.awt.Color.black);
-		JLabel5.setBounds(12, 180, 48, 24);
-		JLabel6.setText("Birthdate");
-		getContentPane().add(JLabel6);
+		JLabel5.setBounds(12, 142, 48, 24);
+		getContentPane().add(JLabel5);
+		
+		JLabel6.setText("Birthday");
 		JLabel6.setForeground(java.awt.Color.black);
-		JLabel6.setBounds(12, 204, 96, 24);
+		JLabel6.setBounds(12, 166, 96, 24);
+		getContentPane().add(JLabel6);
+		
 		JLabel7.setText("Email");
-		getContentPane().add(JLabel7);
 		JLabel7.setForeground(java.awt.Color.black);
-		JLabel7.setBounds(12, 228, 48, 24);
+		JLabel7.setBounds(12, 190, 48, 24);
+		getContentPane().add(JLabel7);
+		
+		JTextField_NAME.setBounds(120, 46, 156, 20);
 		getContentPane().add(JTextField_NAME);
-		JTextField_NAME.setBounds(84, 84, 156, 20);
+		
+		JTextField_CT.setBounds(120, 94, 156, 20);
 		getContentPane().add(JTextField_CT);
-		JTextField_CT.setBounds(84, 132, 156, 20);
+		
+		JTextField_ST.setBounds(120, 118, 156, 20);
 		getContentPane().add(JTextField_ST);
-		JTextField_ST.setBounds(84, 156, 156, 20);
+		
+		JTextField_STR.setBounds(120, 70, 156, 20);
 		getContentPane().add(JTextField_STR);
-		JTextField_STR.setBounds(84, 108, 156, 20);
+		
+		JTextField_ZIP.setBounds(120, 142, 156, 20);
 		getContentPane().add(JTextField_ZIP);
-		JTextField_ZIP.setBounds(84, 180, 156, 20);
+		
+		JTextField_BD.setBounds(120, 166, 156, 20);
 		getContentPane().add(JTextField_BD);
-		JTextField_BD.setBounds(84, 204, 156, 20);
+		
+		JTextField_EM.setBounds(120, 190, 156, 20);
 		getContentPane().add(JTextField_EM);
-		JTextField_EM.setBounds(84, 228, 156, 20);
+
 		JButton_OK.setText("OK");
 		JButton_OK.setActionCommand("OK");
+		JButton_OK.setBounds(48, 226, 84, 24);
 		getContentPane().add(JButton_OK);
-		JButton_OK.setBounds(48, 264, 84, 24);
+		
 		JButton_Cancel.setText("Cancel");
 		JButton_Cancel.setActionCommand("Cancel");
+		JButton_Cancel.setBounds(156, 226, 84, 24);
 		getContentPane().add(JButton_Cancel);
-		JButton_Cancel.setBounds(156, 264, 84, 24);
-		getContentPane().add(JTextField_ACNR);
-		JTextField_ACNR.setBounds(84, 60, 156, 20);
+		
 		JLabel8.setText("Acc Nr");
-		getContentPane().add(JLabel8);
 		JLabel8.setForeground(java.awt.Color.black);
-		JLabel8.setBounds(12, 60, 48, 24);
+		JLabel8.setBounds(12, 22, 48, 24);
+		getContentPane().add(JLabel8);
+		
+		JTextField_ACNR.setBounds(120, 22, 156, 20);
+		getContentPane().add(JTextField_ACNR);
 		// }}
 
 		// {{REGISTER_LISTENERS
-		SymMouse aSymMouse = new SymMouse();
-		JRadioButton_Chk.addMouseListener(aSymMouse);
-		JRadioButton_Sav.addMouseListener(aSymMouse);
 		SymAction lSymAction = new SymAction();
 		JButton_OK.addActionListener(lSymAction);
 		JButton_Cancel.addActionListener(lSymAction);
@@ -103,9 +107,6 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 	}
 
 	// {{DECLARE_CONTROLS
-	javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
-	javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
-
 	javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel2 = new javax.swing.JLabel();
 	javax.swing.JLabel JLabel3 = new javax.swing.JLabel();
@@ -128,31 +129,6 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 	javax.swing.JButton JButton_Cancel = new javax.swing.JButton();
 	// }}
 
-	class SymMouse extends java.awt.event.MouseAdapter {
-		public void mouseClicked(java.awt.event.MouseEvent event) {
-			Object object = event.getSource();
-			if (object == JRadioButton_Chk)
-				JRadioButtonChk_mouseClicked(event);
-			else if (object == JRadioButton_Sav)
-				JRadioButtonSav_mouseClicked(event);
-		}
-	}
-
-	void JRadioButtonChk_mouseClicked(java.awt.event.MouseEvent event) {
-		// When Checking radio is clicked make this radio on
-		// and make Saving account radio off
-		JRadioButton_Chk.setSelected(true);
-		JRadioButton_Sav.setSelected(false);
-	}
-
-	void JRadioButtonSav_mouseClicked(java.awt.event.MouseEvent event) {
-		// When Saving radio is clicked make this radio on
-		// and make Checking account radio off
-		JRadioButton_Chk.setSelected(false);
-		JRadioButton_Sav.setSelected(true);
-
-	}
-
 	class SymAction implements java.awt.event.ActionListener {
 		public void actionPerformed(java.awt.event.ActionEvent event) {
 			Object object = event.getSource();
@@ -164,15 +140,9 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 	}
 
 	void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		String accountType;
-		if (JRadioButton_Chk.isSelected()) {
-			accountType = "A";
-		} else {
-			accountType = "B";
-		}
 
-		IAccount newAccount = this.parentFrame.getFinCo().createPersonalAccount(
-				accountType,
+		this.parentFrame.getFinCo().createPersonalAccount(
+				"",
 				JTextField_ACNR.getText(),
 				0,
 				LocalDate.now().plusMonths(12),
@@ -184,7 +154,7 @@ public class JDialog_CreatePersonalAccount extends javax.swing.JDialog {
 				JTextField_ZIP.getText(),
 				JTextField_BD.getText());
 
-		this.parentFrame.getModel().addNewRow(newAccount);
+        this.parentFrame.getModel().update(this.parentFrame.getFinCo());
 
 		dispose();
 	}

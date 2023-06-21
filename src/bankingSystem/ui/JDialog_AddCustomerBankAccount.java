@@ -103,7 +103,8 @@ public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
                 0,
                 LocalDate.now().plusMonths(12));
 
-        this.parentFrame.getModel().addNewRow(newAccount);
+        // this.parentFrame.getModel().addNewRow(newAccount);
+        this.parentFrame.getModel().update(this.parentFrame.getFinCo());
                 
         dispose();
 
