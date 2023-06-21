@@ -19,4 +19,9 @@ public class CheckingAccount extends Account  {
         INTEREST_RATE += interest;
     }
 
+    @Override
+    public String getAccountType() {
+        return "Ch";
+    }
+
 }

@@ -16,4 +16,9 @@ public class SavingsAccount extends Account {
         INTEREST_RATE += interest;
     }
 
+    @Override
+    public String getAccountType() {
+        return "S";
+    }
+
 }

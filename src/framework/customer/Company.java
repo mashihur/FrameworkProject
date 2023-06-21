@@ -7,4 +7,9 @@ public class Company extends Customer implements ICompany {
         super(name, email, street, city, state, zip);
         this.noOfEmployee = noOfEmployee;
     }
+
+    @Override
+    public String getCustomerType() {
+        return "C";
+    }
 }

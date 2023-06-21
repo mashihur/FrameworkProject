@@ -30,6 +30,11 @@ public class GoldAccount extends Account  {
     }
 
     @Override
+    public String getAccountType() {
+        return "G";
+    }
+
+    @Override
     public String generateMonthlyRecord() {
         double totalCharges = 0.0;
         double totalCredits = 0.0;

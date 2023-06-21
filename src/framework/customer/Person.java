@@ -10,6 +10,11 @@ public class Person extends Customer implements IPerson {
         super(name, email, street, city, state, zip);
         this.birthday = birthday;
     }
+
+    @Override
+    public String getCustomerType() {
+        return "P";
+    }
 }
 
 

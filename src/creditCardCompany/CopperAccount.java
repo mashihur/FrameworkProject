@@ -30,6 +30,11 @@ public class CopperAccount extends Account  {
     }
 
     @Override
+    public String getAccountType() {
+        return "C";
+    }
+
+    @Override
     public String generateMonthlyRecord() {
         double totalCharges = 0.0;
         double totalCredits = 0.0;

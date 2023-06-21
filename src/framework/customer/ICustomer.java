@@ -14,4 +14,5 @@ public interface ICustomer {
     void addInterest(double interest);
     String generateAccReport();
     String getCityName();
+    String getCustomerType();
 }

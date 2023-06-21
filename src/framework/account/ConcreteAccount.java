@@ -14,6 +14,11 @@ public class ConcreteAccount extends Account {
         INTEREST_RATE += interest;
     }
 
+    @Override
+    public String getAccountType() {
+        return "Con";
+    }
+
     public double getINTEREST_RATE() {
         return INTEREST_RATE;
     }

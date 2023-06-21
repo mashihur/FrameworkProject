@@ -10,4 +10,5 @@ public interface IAccount {
      void withdrawOrCharge(double amount);
      String getAccountNumber();
      ICustomer getCustomer();
+     String getAccountType();
 }
