@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 public class BankAccountFactory implements IAccountFactory {
     @Override
-    public Account createAccount(String accountType, String accNumber, double balance, ICustomer customer, String expDate) {
+    public Account createAccount(String accountType, String accNumber, double balance, ICustomer customer, LocalDate expDate) {
         if (accountType.equals(BankConstants.CHECKING_ACCOUNT)) {
             return new CheckingAccount(accNumber, balance, customer);
         } else {
