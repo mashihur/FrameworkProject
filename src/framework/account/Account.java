@@ -28,7 +28,7 @@ public abstract class Account implements IAccount{
 
     @Override
     public void deposit(double amount) {
-        updateMonthlyBalance(LocalDate.now(), balance);
+        monthlyBalance.update(LocalDate.now(), balance);
         balance += amount;
         addEntry(new DepositEntry(amount, LocalDate.now(), "Deposit"));
         customer.sendEmailToCustomer(balance, amount);
@@ -36,18 +36,12 @@ public abstract class Account implements IAccount{
 
     @Override
     public void withdrawOrCharge(double amount) {
-        updateMonthlyBalance(LocalDate.now(), balance);
+        monthlyBalance.update(LocalDate.now(), balance);
         balance -= amount;
         addEntry(new WithdrawEntry(amount, LocalDate.now(), "Withdraw"));
         customer.sendEmailToCustomer(balance, amount);
     }
 
-    protected void updateMonthlyBalance(LocalDate date, double balance) {
-        if (date.getMonthValue() > monthlyBalance.getMonthValue()) {
-            monthlyBalance.setStartingBalance(balance);
-            monthlyBalance.setMonth(date);
-        }
-    }
 
     @Override
     public String getAccountNumber() {

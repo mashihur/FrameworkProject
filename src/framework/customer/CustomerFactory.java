@@ -1,13 +1,15 @@
 package framework.customer;
 
+import framework.Constants;
+
 public class CustomerFactory implements  ICustomerFactory {
     @Override
-    public IPerson createPerson(String name, String email, String street, String city, String state, String zip, String birthday) {
-        return new Person(name, email, street, city, state, zip, birthday);
+    public ICustomer createCustomer(String type, String name, String email, String street, String city, String state, String zip, String birthday, int noOfEmployee) {
+        if (type.equals(Constants.PERSONAL_ACCOUNT)) {
+            return new Person(name, email, street, city, state, zip, birthday);
+        } else {
+            return new Company(name, email, street, city, state, zip, noOfEmployee);
+        }
     }
 
-    @Override
-    public ICompany createCompany(String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
-        return new Company(name, email, street, city, state, zip, noOfEmployee);
-    }
 }

@@ -11,6 +11,13 @@ public class MonthlyBalance {
         this.setStartingBalance(startingBalance);
     }
 
+    public void update(LocalDate date, double balance) {
+        if (date.getMonthValue() > getMonthValue()) {
+            setStartingBalance(balance);
+            setMonth(date);
+        }
+    }
+
     public int getMonthValue() {
         return month.getMonthValue();
     }

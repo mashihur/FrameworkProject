@@ -24,7 +24,7 @@ public class CopperAccount extends Account  {
 
     @Override
     public void deposit(double amount) {
-        updateMonthlyBalance(LocalDate.now(), balance);
+        monthlyBalance.update(LocalDate.now(), balance);
         balance += amount;
         addEntry(new DepositEntry(amount, LocalDate.now(), "Deposit"));
     }

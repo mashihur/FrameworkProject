@@ -2,10 +2,8 @@ package framework;
 
 import framework.account.AccountFactory;
 import framework.account.IAccount;
-import framework.customer.CustomerFactory;
-import framework.customer.ICompany;
-import framework.customer.ICustomer;
-import framework.customer.IPerson;
+import framework.account.IAccountFactory;
+import framework.customer.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,6 +12,13 @@ import java.util.List;
 import framework.ui.FinCoFrame;
 
 public class FinCo {
+    protected ICustomerFactory customerFactory;
+    protected IAccountFactory accountFactory;
+
+    public FinCo() {
+        customerFactory = new CustomerFactory();
+        accountFactory = new AccountFactory();
+    }
     
     public static void main(String[] args) {
         (new FinCoFrame()).setVisible(true);
@@ -25,35 +30,22 @@ public class FinCo {
         return customerList;
     }
 
-    public ICustomer getCustomerByName(String name) {
-        for (ICustomer customer: getCustomerList()) {
-            if (customer.getCustomerName().equals(name)) {
-                return customer;
-            }
-        }
-        return null;
-    }
-
-    // public IAccount getAccountByNumber(String accNr) {
-
-    // }
-
-    public IPerson createPersonalAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
-        IPerson person = new CustomerFactory().createPerson(name, email, street, city, state, zip, birthday);
+    public ICustomer createPersonalAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, String birthday) {
+        ICustomer person = customerFactory.createCustomer(Constants.PERSONAL_ACCOUNT,name, email, street, city, state, zip, birthday, 0);
         addAccount(accType,person, accountNumber, balance, expDate);
         customerList.add(person);
         return person;
     }
 
-    public ICompany createCompanyAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
-        ICompany company = new CustomerFactory().createCompany(name, email, street, city, state, zip, noOfEmployee);
+    public ICustomer createCompanyAccount(String accType, String accountNumber, double balance, LocalDate expDate, String name, String email, String street, String city, String state, String zip, int noOfEmployee) {
+        ICustomer company = customerFactory.createCustomer(Constants.COMPANY_ACCOUNT,name, email, street, city, state, zip, null, noOfEmployee);
         addAccount(accType, company, accountNumber, balance, expDate);
         customerList.add(company);
         return company;
     }
 
     public void addAccount(String accountType, ICustomer customer, String accountNumber, double balance, LocalDate expDate) {
-        IAccount account = new AccountFactory().createAccount(accountType, accountNumber, balance, customer, expDate);
+        IAccount account = accountFactory.createAccount(accountType, accountNumber, balance, customer, expDate);
         customer.addAccount(account);
     }
 
@@ -79,9 +71,17 @@ public class FinCo {
         return reportBuilder.toString();
     }
 
+    public ICustomer getCustomerByName(String name) {
+        for (ICustomer customer: getCustomerList()) {
+            if (customer.getCustomerName().equals(name)) {
+                return customer;
+            }
+        }
+        return null;
+    }
+
     public IAccount getAccountByAccountNumber(String accountNumber) {
         IAccount account = null;
-//        customerList.stream().map(c -> c.getAccountList()).filter(c -> c.con)
         for (ICustomer customer : customerList) {
             for (IAccount lAccount : customer.getAccountList()) {
                 if (lAccount.getAccountNumber().equals(accountNumber)) {
@@ -91,5 +91,6 @@ public class FinCo {
         }
         return account;
     }
+
 
 }
