@@ -3,7 +3,7 @@ package bankingSystem.ui;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import framework.FinCo;
 import framework.customer.ICustomer;
 import framework.ui.FinCoFrame;
 import framework.ui.FinCoTableModel;
@@ -12,8 +12,8 @@ public class BankTableModel extends FinCoTableModel {
 
     // private FinCoFrame parentFrame;
 
-    public BankTableModel(FinCoFrame parentFrame) {
-        super(parentFrame);
+    public BankTableModel() {
+        super();
     }
 
     public void update() {

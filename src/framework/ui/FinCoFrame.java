@@ -52,7 +52,9 @@ public class FinCoFrame extends javax.swing.JFrame {
 
 		JScrollPane1 = new JScrollPane();
 
-		model = new FinCoTableModel(myframe);
+		model = new FinCoTableModel();
+		
+		model.setFinCo(finco);
 
 		JTable1 = new JTable(model);
 

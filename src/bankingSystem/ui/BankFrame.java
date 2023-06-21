@@ -1,7 +1,5 @@
 package bankingSystem.ui;
 
-import bankingSystem.Bank;
-
 import framework.FinCo;
 import framework.ui.FinCoFrame;
 import framework.ui.FinCoTableModel;
@@ -12,6 +10,7 @@ public class BankFrame extends FinCoFrame {
 		super();
 		this.finco = finco;
 		this.model = model;
+		this.model.setFinCo(finCo);
 	}
 	
 	@Override

@@ -10,6 +10,7 @@ public class CreditCardFrame extends FinCoFrame {
 		super();
 		this.finco = finco;
 		this.model = model;
+		this.model.setFinCo(finCo);
 	}
 	
 	@Override

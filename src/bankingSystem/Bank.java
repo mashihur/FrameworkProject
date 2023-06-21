@@ -10,11 +10,12 @@ import java.time.LocalDate;
 import java.util.function.BiPredicate;
 
 import bankingSystem.ui.BankFrame;
+import bankingSystem.ui.BankTableModel;
 import framework.ui.FinCoFrame;
 
 public class Bank extends FinCo {
     public static void main(String[] args) {
-        FinCoFrame bankApp = new BankFrame();
+        FinCoFrame bankApp = new BankFrame(new Bank(), new BankTableModel());
         bankApp.setTitle("Bank Application");
         bankApp.setVisible(true);
     }

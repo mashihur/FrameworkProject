@@ -12,8 +12,8 @@ public class CreditTableModel extends FinCoTableModel {
 
     // private FinCoFrame parentFrame;
 
-    public CreditTableModel(FinCoFrame parentFrame) {
-        super(parentFrame);
+    public CreditTableModel() {
+        super();
     }
 
     public void update() {

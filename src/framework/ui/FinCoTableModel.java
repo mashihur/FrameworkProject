@@ -5,16 +5,20 @@ import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
 
+import framework.FinCo;
 import framework.customer.ICustomer;
 
 public class FinCoTableModel extends DefaultTableModel {
 
-    private FinCoFrame parentFrame;
+    private FinCo finCo;
 
-    public FinCoTableModel(FinCoFrame parentFrame) {
+    public FinCoTableModel() {
         super();
-        this.parentFrame = parentFrame;
         this.addAllColumns();
+    }
+
+    public void setFinCo(FinCo finCo) {
+        this.finCo = finCo;
     }
 
     public void update() {

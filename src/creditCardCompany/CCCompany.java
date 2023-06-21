@@ -10,10 +10,11 @@ import java.time.LocalDate;
 import java.util.function.BiPredicate;
 
 import creditCardCompany.ui.CreditCardFrame;
+import creditCardCompany.ui.CreditTableModel;
 
 public class CCCompany extends FinCo {
     public static void main(String[] args) {
-        CreditCardFrame ccardApp = new CreditCardFrame();
+        CreditCardFrame ccardApp = new CreditCardFrame(new CCCompany(), new CreditTableModel());
         ccardApp.setTitle("Credit Card Application");
         ccardApp.setVisible(true);
     }
