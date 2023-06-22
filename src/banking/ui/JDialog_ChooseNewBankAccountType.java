@@ -1,4 +1,4 @@
-package bankingSystem.ui;
+package banking.ui;
 
 import java.awt.BorderLayout;
 

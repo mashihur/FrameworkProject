@@ -1,4 +1,4 @@
-package bankingSystem;
+package banking;
 
 public class BankConstants {
     public  static final String SAVINGS_ACCOUNT = "savings";

@@ -1,10 +1,7 @@
-package bankingSystem;
+package banking;
 
 import framework.account.Account;
-import framework.account.IEntry;
 import framework.customer.ICustomer;
-
-import java.time.LocalDate;
 
 public class CheckingAccount extends Account  {
     private double INTEREST_RATE = 0.1;

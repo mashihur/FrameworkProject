@@ -1,4 +1,4 @@
-package creditCardCompany;
+package creditcard;
 
 import framework.*;
 import framework.account.IAccount;
@@ -8,7 +8,7 @@ import framework.customer.ICustomer;
 import java.time.LocalDate;
 import java.util.function.BiPredicate;
 
-import creditCardCompany.ui.CreditCardFrame;
+import creditcard.ui.CreditCardFrame;
 
 public class CCCompany extends FinCo {
 

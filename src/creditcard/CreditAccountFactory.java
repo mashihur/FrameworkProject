@@ -1,4 +1,4 @@
-package creditCardCompany;
+package creditcard;
 
 import framework.account.Account;
 import framework.account.IAccountFactory;

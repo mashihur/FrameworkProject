@@ -1,4 +1,4 @@
-package creditCardCompany;
+package creditcard;
 
 import framework.account.Account;
 import framework.account.DepositEntry;
@@ -7,12 +7,12 @@ import framework.customer.ICustomer;
 
 import java.time.LocalDate;
 
-public class GoldAccount extends Account  {
-    private double MI = 0.12;
-    private double MP = 0.12;
+public class SilverAccount extends Account  {
+    private double MI = 0.16;
+    private double MP = 0.18;
     private LocalDate expDate;
 
-    public GoldAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
+    public SilverAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
         super(accNumber, balance, customer);
         this.expDate = expDate;
     }
@@ -21,7 +21,6 @@ public class GoldAccount extends Account  {
     public void addInterest(double interest) {
         balance += balance * MI;
     }
-
     @Override
     public void deposit(double amount) {
         monthlyBalance.update(LocalDate.now(), balance);
@@ -31,7 +30,7 @@ public class GoldAccount extends Account  {
 
     @Override
     public String getAccountType() {
-        return "G";
+        return "S";
     }
 
     @Override

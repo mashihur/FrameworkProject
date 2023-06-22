@@ -1,14 +1,14 @@
-package bankingSystem.ui;
+package creditcard.ui;
 
 import java.time.LocalDate;
 
-import bankingSystem.BankConstants;
-import framework.account.IAccount;
+import creditcard.CreditConstants;
+import framework.ui.FinCoFrame;
 
-public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
-    BankFrame parentFrame;
+public class JDialog_AddCustomerCreditAccount extends javax.swing.JDialog {
+    FinCoFrame parentFrame;
 
-    public JDialog_AddCustomerBankAccount(BankFrame parent) {
+    public JDialog_AddCustomerCreditAccount(CreditCardFrame parent) {
         super(parent);
         this.parentFrame = parent;
 
@@ -18,18 +18,24 @@ public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
         setSize(298, 339);
         setVisible(false);
 
-        JRadioButton_Chk.setText("Checkings");
-        JRadioButton_Chk.setActionCommand("Checkings");
-        JRadioButton_Chk.setBounds(36, 12, 84, 24);
-        getContentPane().add(JRadioButton_Chk);
+		JRadioButton_Gold.setText("Gold");
+		JRadioButton_Gold.setActionCommand("Gold");
+		JRadioButton_Gold.setBounds(36, 12, 84, 24);
+		getContentPane().add(JRadioButton_Gold);
 
-        JRadioButton_Sav.setText("Savings");
-        JRadioButton_Sav.setActionCommand("Savings");
-        JRadioButton_Sav.setBounds(36, 36, 84, 24);
-        getContentPane().add(JRadioButton_Sav);
+		JRadioButton_Silver.setText("Silver");
+		JRadioButton_Silver.setActionCommand("Silver");
+		JRadioButton_Silver.setBounds(36, 36, 84, 24);
+		getContentPane().add(JRadioButton_Silver);
 
-        group.add(JRadioButton_Chk);
-        group.add(JRadioButton_Sav);
+		JRadioButton_Copper.setText("Copper");
+		JRadioButton_Copper.setActionCommand("Copper");
+		JRadioButton_Copper.setBounds(36, 60, 84, 24);
+		getContentPane().add(JRadioButton_Copper);
+
+		group.add(JRadioButton_Gold);
+		group.add(JRadioButton_Silver);
+		group.add(JRadioButton_Copper);
 
         JLabel1.setText("Name");
         JLabel1.setForeground(java.awt.Color.black);
@@ -65,8 +71,9 @@ public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
     }
 
     // {{DECLARE_CONTROLS
-    javax.swing.JRadioButton JRadioButton_Chk = new javax.swing.JRadioButton();
-    javax.swing.JRadioButton JRadioButton_Sav = new javax.swing.JRadioButton();
+	javax.swing.JRadioButton JRadioButton_Gold = new javax.swing.JRadioButton();
+	javax.swing.JRadioButton JRadioButton_Silver = new javax.swing.JRadioButton();
+	javax.swing.JRadioButton JRadioButton_Copper = new javax.swing.JRadioButton();
     javax.swing.ButtonGroup group = new javax.swing.ButtonGroup();
     
     javax.swing.JLabel JLabel1 = new javax.swing.JLabel();
@@ -90,12 +97,14 @@ public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
     }
 
     void JButtonOK_actionPerformed(java.awt.event.ActionEvent event) {
-		String accountType;
-		if (JRadioButton_Chk.isSelected()) {
-			accountType = BankConstants.CHECKING_ACCOUNT;
-		} else {
-			accountType = BankConstants.SAVINGS_ACCOUNT;
-		}
+        String accountType;
+        if (JRadioButton_Gold.isSelected()) {
+            accountType = CreditConstants.GOLD_ACCOUNT;
+        } else if (JRadioButton_Silver.isSelected()) {
+            accountType = CreditConstants.SILVER_ACCOUNT;
+        } else {
+            accountType = CreditConstants.COPPER_ACCOUNT;
+        }
 
         this.parentFrame.getFinCo().addAccount(
                 accountType,
@@ -105,7 +114,7 @@ public class JDialog_AddCustomerBankAccount extends javax.swing.JDialog {
                 LocalDate.now().plusMonths(12));
 
         this.parentFrame.getModel().update(this.parentFrame.getFinCo());
-                
+
         dispose();
 
     }

@@ -1,4 +1,4 @@
-package creditCardCompany.ui;
+package creditcard.ui;
 
 import java.util.ArrayList;
 import java.util.List;

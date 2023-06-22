@@ -1,6 +1,6 @@
-package creditCardCompany.ui;
+package creditcard.ui;
 
-import creditCardCompany.CCCompany;
+import creditcard.CCCompany;
 import framework.ui.FinCoFrame;
 
 public class CreditCardFrame extends FinCoFrame {

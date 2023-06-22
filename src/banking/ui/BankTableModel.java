@@ -1,4 +1,4 @@
-package bankingSystem.ui;
+package banking.ui;
 
 import java.util.ArrayList;
 import java.util.List;

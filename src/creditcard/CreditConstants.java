@@ -1,4 +1,4 @@
-package creditCardCompany;
+package creditcard;
 
 public class CreditConstants {
     public  static final String GOLD_ACCOUNT = "gold";

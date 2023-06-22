@@ -1,4 +1,4 @@
-package creditCardCompany;
+package creditcard;
 
 import framework.account.Account;
 import framework.account.DepositEntry;
@@ -7,12 +7,12 @@ import framework.customer.ICustomer;
 
 import java.time.LocalDate;
 
-public class CopperAccount extends Account  {
-    private double MI = 0.20;
-    private double MP = 0.24;
+public class GoldAccount extends Account  {
+    private double MI = 0.12;
+    private double MP = 0.12;
     private LocalDate expDate;
 
-    public CopperAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
+    public GoldAccount(String accNumber, double balance, ICustomer customer, LocalDate expDate) {
         super(accNumber, balance, customer);
         this.expDate = expDate;
     }
@@ -31,7 +31,7 @@ public class CopperAccount extends Account  {
 
     @Override
     public String getAccountType() {
-        return "C";
+        return "G";
     }
 
     @Override

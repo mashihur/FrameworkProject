@@ -1,10 +1,8 @@
-package creditCardCompany.ui;
+package creditcard.ui;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 
-import creditCardCompany.CreditConstants;
-import framework.account.IAccount;
+import creditcard.CreditConstants;
 import framework.ui.FinCoFrame;
 
 public class JDialog_CreateCreditCardAccount extends javax.swing.JDialog {

@@ -1,7 +1,6 @@
-package bankingSystem;
+package banking;
 
 import framework.account.Account;
-import framework.account.IEntry;
 import framework.customer.ICustomer;
 
 public class SavingsAccount extends Account {

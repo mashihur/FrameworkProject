@@ -1,4 +1,4 @@
-package bankingSystem;
+package banking;
 
 import framework.*;
 import framework.account.IAccount;
@@ -8,7 +8,7 @@ import framework.customer.ICustomer;
 import java.time.LocalDate;
 import java.util.function.BiPredicate;
 
-import bankingSystem.ui.BankFrame;
+import banking.ui.BankFrame;
 
 public class Bank extends FinCo {
 

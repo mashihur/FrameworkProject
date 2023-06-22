@@ -1,9 +1,8 @@
-package bankingSystem.ui;
+package banking.ui;
 
 import java.time.LocalDate;
 
-import bankingSystem.BankConstants;
-import framework.account.IAccount;
+import banking.BankConstants;
 import framework.ui.FinCoFrame;
 
 public class JDialog_CreateCompanyAccount extends javax.swing.JDialog {

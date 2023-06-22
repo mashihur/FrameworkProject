@@ -1,6 +1,6 @@
-package bankingSystem.ui;
+package banking.ui;
 
-import bankingSystem.Bank;
+import banking.Bank;
 import framework.ui.FinCoFrame;
 
 public class BankFrame extends FinCoFrame {	
