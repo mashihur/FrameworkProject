@@ -9,6 +9,7 @@ public class CreditCardFrame extends FinCoFrame {
 		super();
 		this.setFinCo(new CCCompany());
 		this.setModel(new CreditTableModel());
+		this.setWithdrawButtonText("Charge");
 	}
 	
 	@Override
